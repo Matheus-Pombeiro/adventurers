@@ -1,22 +1,38 @@
+import { useTranslation } from 'react-i18next';
+
+const languageOptions = [
+    {
+        name: "English",
+        value: "en",
+        flag: "/assets/usa-flag.png",
+    },
+    {
+        name: "Português",
+        value: "pt",
+        flag: "/assets/brazil-flag.png"
+    }
+];
+
 const LanguageSwitcher = () => {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
-            <button>
-                <img 
-                    src="/assets/usa-flag.png" 
-                    alt="USA Flag" 
-                    title="English" 
-                    className="header-btn" 
-                />
-            </button>
-            <button>
-                <img 
-                    src="/assets/brazil-flag.png" 
-                    alt="Brazil Flag" 
-                    title="Portuguese" 
-                    className="header-btn" 
-                />
-            </button>
+            {languageOptions.map(option => (
+                <button 
+                    key={option.value}
+                    onClick={() => {
+                        i18n.changeLanguage(option.value)
+                    }}
+                >
+                    <img  
+                        src={option.flag}
+                        alt={option.name}
+                        title={option.name}
+                        className='header-btn'
+                    />
+                </button>
+            ))}
         </>
     )
 };

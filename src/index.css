@@ -4,6 +4,6 @@
 
 @layer components {
     .header-btn {
-        @apply h-11 lg:h-12 transition-all ease-in-out duration-150 hover:scale-110 cursor-pointer;
+        @apply h-9 lg:h-10 transition-all ease-in-out duration-150 hover:scale-110 cursor-pointer;
     }
 }
