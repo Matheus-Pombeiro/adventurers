@@ -6,4 +6,8 @@
     .header-btn {
         @apply h-9 lg:h-10 transition-all ease-in-out duration-150 hover:scale-110 cursor-pointer;
     }
+
+    .btn {
+        @apply px-3 py-2 bg-blue-500 text-white font-medium border-none outline-none rounded-sm hover:bg-blue-600 active:bg-blue-400 hover:ring-2 ring-blue-500 ring-opacity-25 cursor-pointer; 
+    }
 }
