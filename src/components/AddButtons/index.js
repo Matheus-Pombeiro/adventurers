@@ -6,7 +6,7 @@ import AddNewCharacter from "../AddNewCharacter";
 import AddNewDataType from "../AddNewDataType";
 import Dialog from "../Dialog";
 
-const AddButtons = () => {
+const AddButtons = ({ toRegisterCharacter }) => {
     const [dialogContent, setDialogContent] = useState(null)    // Declare the dialog content's state
 
     const dialogRef = useRef(null)  // Declare the dialog's reference
@@ -31,7 +31,10 @@ const AddButtons = () => {
             <IoMdPersonAdd 
                 {...buttonProps}
                 onClick={() => {
-                    setDialogContent(<AddNewCharacter />)
+                    setDialogContent(<AddNewCharacter 
+                        toRegisterCharacter={toRegisterCharacter} 
+                        toggleDialog={() => toggleDialog()}
+                    />)
                     toggleDialog()
                 }}
                 
