@@ -6,7 +6,7 @@ import AddNewCharacter from "../AddNewCharacter";
 import AddNewDataType from "../AddNewDataType";
 import Dialog from "../Dialog";
 
-const AddButtons = ({ toRegisterCharacter }) => {
+const AddButtons = ({ toRegisterCharacter, raceItems, classItems, specializationItems }) => {
     const [dialogContent, setDialogContent] = useState(null)    // Declare the dialog content's state
 
     const dialogRef = useRef(null)  // Declare the dialog's reference
@@ -34,6 +34,9 @@ const AddButtons = ({ toRegisterCharacter }) => {
                     setDialogContent(<AddNewCharacter 
                         toRegisterCharacter={toRegisterCharacter} 
                         toggleDialog={() => toggleDialog()}
+                        raceItems={raceItems}
+                        classItems={classItems}
+                        specializationItems={specializationItems}
                     />)
                     toggleDialog()
                 }}
