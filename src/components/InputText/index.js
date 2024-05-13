@@ -1,4 +1,4 @@
-const InputText = ({ data, value, toChange }) => {
+const InputText = ({ data, required, value, toChange }) => {
     return (
         <>
             <label 
@@ -10,7 +10,7 @@ const InputText = ({ data, value, toChange }) => {
                 id={data} 
                 placeholder={`Insert the ${data}...`}
                 className="input"
-                required={true}
+                required={required}
                 value={value}
                 onChange={e => toChange(e.target.value)}
             />
