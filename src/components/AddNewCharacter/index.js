@@ -9,6 +9,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
     const [race, setRace] = useState("");
     const [characterClass, setCharacterClass] = useState("");
     const [specialization, setSpecialization] = useState("");
+    const [image, setImage] = useState("");
     const [status, setStatus] = useState(true);
     
     const toSubmit = (e) => {
@@ -19,6 +20,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             race,
             characterClass,
             specialization,
+            image,
             status
         });
 
@@ -26,6 +28,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
         setRace("");
         setCharacterClass("");
         setSpecialization("");
+        setImage("");
         setStatus(true);
 
         toggleDialog();
@@ -42,6 +45,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
 
             <InputText 
                 data={"Name"}
+                required={true}
                 value={name}
                 toChange={value => setName(value)}
             />
@@ -49,6 +53,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             <DropDown 
                 data={"Race"}
                 listItems={raceItems}
+                required={true}
                 value={race}
                 toChange={value => setRace(value)}
             />
@@ -56,6 +61,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             <DropDown 
                 data={"Class"}
                 listItems={classItems}
+                required={true}
                 value={characterClass}
                 toChange={value => setCharacterClass(value)}
             />
@@ -63,8 +69,16 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             <DropDown 
                 data={"Specialization"}
                 listItems={specializationItems}
+                required={true}
                 value={specialization}
                 toChange={value => setSpecialization(value)}
+            />
+
+            <InputText 
+                data={"Image"}
+                required={false}
+                value={image}
+                toChange={value => setImage(value)}
             />
 
             <div className="space-y-2">
