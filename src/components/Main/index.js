@@ -3,6 +3,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 import AddButtons from "../AddButtons";
+import Team from "../Team";
 
 const Main = () => {
     const [characters, setCharacters] = useState([]);
@@ -40,15 +41,18 @@ const Main = () => {
     const [specializationItems, setSpecializationItems] = useState([
         {
             id: uuidv4(),
-            name: "Damage"
+            name: "Damage",
+            color: "#f61e43"
         },
         {
             id: uuidv4(),
-            name: "Defense"
+            name: "Defense",
+            color: "#1e92f6"
         },
         {
             id: uuidv4(),
-            name: "Suport"
+            name: "Suport",
+            color: "#59dd55"
         }
     ]);
 
@@ -56,12 +60,24 @@ const Main = () => {
 
     return (
         <main>
-            <AddButtons 
-                toRegisterCharacter={character => setCharacters([...characters, character])}
-                raceItems={raceItems}
-                classItems={classItems}
-                specializationItems={specializationItems}
-            />
+            <section>
+                <AddButtons
+                    toRegisterCharacter={character => setCharacters([...characters, character])}
+                    raceItems={raceItems}
+                    classItems={classItems}
+                    specializationItems={specializationItems}
+                />
+            </section>
+            <section>
+                <h2 className="h2 dark:text-white">My Team</h2>
+                {specializationItems.map(specialization => 
+                    <Team 
+                        key={uuidv4()}
+                        data={specialization}
+                        characters={characters.filter(character => character.specialization === specialization.name)}
+                    />
+                )}
+            </section>
         </main>
     )
 };
