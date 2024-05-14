@@ -27,4 +27,8 @@
         @apply py-1 text-lg leading-5;
     }
 
+    .btn-animation {
+        @apply transition-all ease-in-out duration-150 hover:scale-110 cursor-pointer;
+    }
+
 }
