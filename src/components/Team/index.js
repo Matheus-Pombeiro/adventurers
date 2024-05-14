@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Character from "../Character";
 
-const Team = ({ data, characters }) => {
+const Team = ({ data, characters, toDelete }) => {
     return (
         characters.length > 0 && 
         <section
@@ -19,6 +19,7 @@ const Team = ({ data, characters }) => {
                         key={uuidv4()}
                         character={character}
                         backgroundColor={data.color}
+                        toDelete={toDelete}
                     />
                 )}
             </div>

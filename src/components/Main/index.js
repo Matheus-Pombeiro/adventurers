@@ -6,7 +6,8 @@ import AddButtons from "../AddButtons";
 import Team from "../Team";
 
 const Main = () => {
-    const [characters, setCharacters] = useState([]);
+    // Declare a range of states tha contain data about the project's business rules
+    const [characters, setCharacters] = useState([]);  
 
     const [raceItems, setRaceItems] = useState([
         {
@@ -56,7 +57,10 @@ const Main = () => {
         }
     ]);
 
-    console.log(characters)
+    // Declare a function that delete the character selected by the user
+    const deleteCharacter = (id) => {
+        setCharacters(characters.filter(character => character.id !== id));
+    };
 
     return (
         <main>
@@ -75,6 +79,7 @@ const Main = () => {
                         key={uuidv4()}
                         data={specialization}
                         characters={characters.filter(character => character.specialization === specialization.name)}
+                        toDelete={deleteCharacter}
                     />
                 )}
             </section>

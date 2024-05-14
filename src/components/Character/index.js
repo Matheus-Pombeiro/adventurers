@@ -1,6 +1,19 @@
-const Character = ({ character, backgroundColor }) => {
+import { AiFillCloseCircle } from "react-icons/ai";
+import { FaHeartPulse, FaHeartCrack } from "react-icons/fa6";
+
+const Character = ({ character, backgroundColor, toDelete }) => {
+    const propsButtons = {
+        size: 25,
+        color: "black"
+    };
+
     return (
         <div className="w-72 relative">
+            <AiFillCloseCircle 
+                {...propsButtons}
+                className="absolute -top-3 -right-3 btn-animation"
+                onClick={() => toDelete(character.id)}
+            />
             <div
                 className="bg-white rounded-t-xl"
                 style={{ backgroundColor: backgroundColor }}
