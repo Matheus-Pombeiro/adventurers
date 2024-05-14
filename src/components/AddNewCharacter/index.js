@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { v4 as uuidv4 } from 'uuid';
+
 import InputText from "../InputText";
 import InputRadio from "../InputRadio";
 import DropDown from "../DropDown";
@@ -16,6 +18,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
         e.preventDefault();
         
         toRegisterCharacter({
+            id: uuidv4(),
             name,
             race,
             characterClass,
