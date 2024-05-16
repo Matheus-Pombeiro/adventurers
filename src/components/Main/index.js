@@ -57,9 +57,19 @@ const Main = () => {
         }
     ]);
 
+    console.log(characters)
+
     // Declare a function that delete the character selected by the user
     const deleteCharacter = (id) => {
         setCharacters(characters.filter(character => character.id !== id));
+    };
+
+    // Declare a function that change the character's status (alive / dead)
+    const changeStatus = (id) => {
+        setCharacters(characters.map(character => {
+            if (character.id === id) character.status = !character.status;
+            return character;
+        }));
     };
 
     return (
@@ -80,6 +90,7 @@ const Main = () => {
                         data={specialization}
                         characters={characters.filter(character => character.specialization === specialization.name)}
                         toDelete={deleteCharacter}
+                        toChangeStatus={changeStatus}
                     />
                 )}
             </section>
