@@ -1,12 +1,13 @@
-const InputRadio = ({ data, name, toChange }) => {
+const InputRadio = ({ data, name, value, toChange }) => {
     return (
         <div className="space-x-2">
             <input
                 type="radio"
                 id={data}
                 name={name}
-                onChange={toChange}
-                checked={true}
+                value={value}
+                onChange={e => toChange(e.target.value)}
+                defaultChecked={value === true}
             />
             <label 
                 htmlFor={data}

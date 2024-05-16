@@ -95,13 +95,15 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
                     <InputRadio
                         data={"Alive"}
                         name={inputRadioName}
-                        toChange={() => setStatus(true)}
+                        value={true}
+                        toChange={value => setStatus(value)}
                     />
                     
                     <InputRadio
                         data={"Dead"}
                         name={inputRadioName}
-                        toChange={() => setStatus(false)}
+                        value={false}
+                        toChange={value => setStatus(value)}
                     />
                 </div>
             </div>
