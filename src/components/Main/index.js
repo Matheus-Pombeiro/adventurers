@@ -43,21 +43,27 @@ const Main = () => {
         {
             id: uuidv4(),
             name: "Damage",
-            color: "#f61e43"
+            color: "#F61E43"
         },
         {
             id: uuidv4(),
             name: "Defense",
-            color: "#1e92f6"
+            color: "#1E92F6"
         },
         {
             id: uuidv4(),
             name: "Suport",
-            color: "#59dd55"
+            color: "#59DD55"
         }
     ]);
 
-    console.log(characters)
+    // Declare a function that change the color of the groups of characters
+    const changeColor = (color, id) => {
+        setSpecializationItems(specializationItems.map(item => {
+            if (item.id === id) item.color = color;
+            return item;
+        }));
+    };
 
     // Declare a function that delete the character selected by the user
     const deleteCharacter = (id) => {
@@ -84,11 +90,12 @@ const Main = () => {
             </section>
             <section>
                 <h2 className="h2 dark:text-white">My Team</h2>
-                {specializationItems.map(specialization => 
+                {specializationItems.map((specialization, index) => 
                     <Team 
-                        key={uuidv4()}
+                        key={index}
                         data={specialization}
                         characters={characters.filter(character => character.specialization === specialization.name)}
+                        toChangeColor={changeColor}
                         toDelete={deleteCharacter}
                         toChangeStatus={changeStatus}
                     />
