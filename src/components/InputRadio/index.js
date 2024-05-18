@@ -7,7 +7,7 @@ const InputRadio = ({ data, name, value, toChange }) => {
                 name={name}
                 value={value}
                 onChange={e => toChange(e.target.value)}
-                defaultChecked={value === true}
+                defaultChecked={value === true || value === "Race"}
             />
             <label 
                 htmlFor={data}

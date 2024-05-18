@@ -6,7 +6,7 @@ import AddNewCharacter from "../AddNewCharacter";
 import AddNewDataType from "../AddNewDataType";
 import Dialog from "../Dialog";
 
-const AddButtons = ({ toRegisterCharacter, raceItems, classItems, specializationItems }) => {
+const AddButtons = ({ toRegisterCharacter, toRegisterNewTypeData, raceItems, classItems, specializationItems }) => {
     const [dialogContent, setDialogContent] = useState(null)    // Declare the dialog content's state
 
     const dialogRef = useRef(null)  // Declare the dialog's reference
@@ -45,7 +45,10 @@ const AddButtons = ({ toRegisterCharacter, raceItems, classItems, specialization
             <IoMdAddCircle 
                 {...buttonProps}
                 onClick={() => {
-                    setDialogContent(<AddNewDataType />)
+                    setDialogContent(<AddNewDataType 
+                        toRegisterNewTypeData={toRegisterNewTypeData}
+                        toggleDialog={() => toggleDialog()}
+                    />)
                     toggleDialog()
                 }} 
             />

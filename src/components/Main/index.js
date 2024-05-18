@@ -57,6 +57,15 @@ const Main = () => {
         }
     ]);
 
+    // Declare a function that adds the new type of data into its respectively state
+    const registerNewTypeData = (data) => {
+        data.data === "Race"
+            ? setRaceItems([...raceItems, data])
+            : data.data === "Class"
+                ? setClassItems([...classItems, data])
+                : setSpecializationItems([...specializationItems, data]);
+    };
+
     // Declare a function that change the color of the groups of characters
     const changeColor = (color, id) => {
         setSpecializationItems(specializationItems.map(item => {
@@ -83,6 +92,7 @@ const Main = () => {
             <section>
                 <AddButtons
                     toRegisterCharacter={character => setCharacters([...characters, character])}
+                    toRegisterNewTypeData={data => registerNewTypeData(data)}
                     raceItems={raceItems}
                     classItems={classItems}
                     specializationItems={specializationItems}
