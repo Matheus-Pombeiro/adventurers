@@ -7,6 +7,7 @@ import InputRadio from "../InputRadio";
 import DropDown from "../DropDown";
 
 const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classItems, specializationItems }) => {
+    // Declare the states that contain the values inserted by the user when they are adding a new character
     const [name, setName] = useState("");
     const [race, setRace] = useState("");
     const [characterClass, setCharacterClass] = useState("");
@@ -14,9 +15,11 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
     const [image, setImage] = useState("");
     const [status, setStatus] = useState(true);
     
+    // Declare a function that registers the new character
     const toSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();     // Prevents the form's automatic behavior
         
+        // Send the character data to the above component
         toRegisterCharacter({
             id: uuidv4(),
             name,
@@ -27,6 +30,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             status
         });
 
+        // Restore the state's values to their initial values
         setName("");
         setRace("");
         setCharacterClass("");
@@ -34,14 +38,14 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
         setImage("");
         setStatus(true);
 
-        toggleDialog();
+        toggleDialog();     // Close the modal
     };
 
-    const inputRadioName = "Status";
+    const inputRadioName = "Status";    // Declare a const that contains the default value for the input's name
 
     return (
         <form
-            className="mb-2 flex flex-col justify-center gap-2.5"
+            className="form"
             onSubmit={toSubmit}
         >
             <h2 className="h2">Add a New Character</h2>
