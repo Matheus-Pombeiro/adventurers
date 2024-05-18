@@ -9,6 +9,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
     // Declare the states that contains the type of data choosed by the user and the value inserted by them
     const [data, setData] = useState("Race");
     const [dataValue, setDataValue] = useState("");
+    const [color, setColor] = useState("#000000");
 
     // Declare a function that cleans the state of the value's data and its input (text)
     const cleanDataValue = (value) => {
@@ -22,11 +23,20 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
         e.preventDefault();     // Prevents the form's automatic behavior
 
         // Send the data's type to the above component
-        toRegisterNewTypeData({
-            id: uuidv4(),
-            data: data,
-            name: dataValue
-        });
+        if (data === "Specialization") {
+            toRegisterNewTypeData({
+                id: uuidv4(),
+                data: data,
+                name: dataValue,
+                color: color
+            }); 
+        } else {
+            toRegisterNewTypeData({
+                id: uuidv4(),
+                data: data,
+                name: dataValue
+            });
+        }
 
         // Restore the state's values to their initial values
         setData("Race");
@@ -95,7 +105,28 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
                         required={true}
                         value={dataValue}
                         toChange={value => setDataValue(value)}
-                    />)
+                    />
+                )
+            }
+
+            {data === "Specialization" &&
+                <label
+                    className="label"
+                    htmlFor="color"
+                >
+                    Choose the Color
+                </label>
+            }
+
+            {data === "Specialization" &&
+               <input 
+                    type="color"
+                    id="color"
+                    className="w-80 p-0.5"
+                    required={true}
+                    value={color}
+                    onChange={e => setColor(e.target.value)}
+                />
             }
 
             <button
