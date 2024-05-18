@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const InputText = ({ data, required, value, toChange }) => {
+    const { t } = useTranslation(); // Translator reference
+
     return (
         <>
             <label 
@@ -8,7 +12,7 @@ const InputText = ({ data, required, value, toChange }) => {
             <input 
                 type="text"
                 id={data} 
-                placeholder={`Insert the ${data}...`}
+                placeholder={t(data)}
                 className="input"
                 required={required}
                 value={value}

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import { v4 as uuidv4 } from 'uuid';
 
 import AddButtons from "../AddButtons";
@@ -57,6 +59,8 @@ const Main = () => {
         }
     ]);
 
+    const { t } = useTranslation(); // Translator reference
+
     // Declare a function that adds the new type of data into its respectively state
     const registerNewTypeData = (data) => {
         data.data === "Race"
@@ -99,7 +103,7 @@ const Main = () => {
                 />
             </section>
             <section>
-                <h2 className="h2 dark:text-white">My Team</h2>
+                <h2 className="h2 dark:text-white">{t("My Team")}</h2>
                 {specializationItems.map((specialization, index) => 
                     <Team 
                         key={index}

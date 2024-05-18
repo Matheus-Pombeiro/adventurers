@@ -1,6 +1,10 @@
 import { forwardRef } from "react";
 
+import { useTranslation } from "react-i18next";
+
 const Dialog = forwardRef(({ children, toggleDialog }, ref) => {
+    const { t } = useTranslation(); // Translator reference
+    
     return (
         <dialog 
             ref={ref}
@@ -17,7 +21,7 @@ const Dialog = forwardRef(({ children, toggleDialog }, ref) => {
                     onClick={toggleDialog}
                     className="btn"
                 >
-                    Close
+                    {t("Close")}
                 </button>
             </div>
         </dialog>

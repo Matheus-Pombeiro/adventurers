@@ -4,7 +4,7 @@ import LanguageSwitcher from "../LanguageSwitcher";
 import ThemeSwitcher from "../ThemeSwitcher";
 
 const Header = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(); // Translator reference
 
     return (
         <header 

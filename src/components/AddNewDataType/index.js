@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import { v4 as uuidv4 } from 'uuid';
 
 import InputRadio from "../InputRadio";
@@ -10,6 +12,8 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
     const [data, setData] = useState("Race");
     const [dataValue, setDataValue] = useState("");
     const [color, setColor] = useState("#000000");
+
+    const { t } = useTranslation(); // Translator reference
 
     // Declare a function that cleans the state of the value's data and its input (text)
     const cleanDataValue = (value) => {
@@ -52,30 +56,30 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
             onSubmit={toSubmit}
             className="form"
         >
-            <h2 className="h2">Add a New Type of Data</h2>
+            <h2 className="h2">{t("Add New Type of Data")}</h2>
 
             <div className="space-y-2">
                 <label
                     htmlFor="Race"
                     className="label"
                 >
-                    Choose a Type
+                    {t("Choose a Type")}
                 </label>
                 <div>
                     <InputRadio 
-                        data={"Race"}
+                        data={t("Race")}
                         name={inputRadioName}
                         value={"Race"}
                         toChange={value => [setData(value), cleanDataValue(value)]}
                     />
                     <InputRadio 
-                        data={"Class"}
+                        data={t("Class")}
                         name={inputRadioName}
                         value={"Class"}
                         toChange={value => [setData(value), cleanDataValue(value)]}
                     />
                     <InputRadio 
-                        data={"Specialization"}
+                        data={t("Specialization")}
                         name={inputRadioName}
                         value={"Specialization"}
                         toChange={value => [setData(value), cleanDataValue(value)]}
@@ -85,7 +89,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
 
             {(data === "Race" &&
                 <InputText 
-                    data={"New Race"}
+                    data={t("New Race")}
                     required={true}
                     value={dataValue}
                     toChange={value => setDataValue(value)}
@@ -93,7 +97,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
 
                 || (data === "Class" &&
                     <InputText 
-                        data={"New Class"}
+                        data={t("New Class")}
                         required={true}
                         value={dataValue}
                         toChange={value => setDataValue(value)}
@@ -101,7 +105,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
 
                 || (data === "Specialization" &&
                     <InputText 
-                        data={"New Specialization"}
+                        data={t("New Specialization")}
                         required={true}
                         value={dataValue}
                         toChange={value => setDataValue(value)}
@@ -114,7 +118,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
                     className="label"
                     htmlFor="color"
                 >
-                    Choose the Color
+                    {t("Choose the Color")}
                 </label>
             }
 
@@ -133,7 +137,7 @@ const AddNewDataType = ({ toRegisterNewTypeData, toggleDialog }) => {
                 type="submit"
                 className="btn"
             >
-                Add a New Type of Data
+                {t("Add Data")}
             </button>
         </form>
     )

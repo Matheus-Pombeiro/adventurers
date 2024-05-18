@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import { AiFillCloseCircle } from "react-icons/ai";
 import { FaHeartPulse, FaHeartCrack } from "react-icons/fa6";
 
 const Character = ({ character, backgroundColor, toDelete, toChangeStatus }) => {
+    const { t } = useTranslation(); // Translator reference
+
     const changeStatus = () => {
         toChangeStatus(character.id);
     };
@@ -18,6 +22,7 @@ const Character = ({ character, backgroundColor, toDelete, toChangeStatus }) => 
                 size={25}
                 color="black"
                 className="absolute -top-3 -right-3 btn-animation"
+                title={t("Delete")}
                 onClick={() => toDelete(character.id)}
             />
             <div
@@ -41,12 +46,12 @@ const Character = ({ character, backgroundColor, toDelete, toChangeStatus }) => 
                         ? <FaHeartPulse 
                             {...propsStatusBtn}
                             color="red"
-                            title="Alive"
+                            title={t("Alive")}
                         />
                         : <FaHeartCrack 
                             {...propsStatusBtn}
                             color="black"
-                            title="Dead"
+                            title={t("Dead")}
                         />
                     }
                 </div>

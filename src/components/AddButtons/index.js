@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import { IoMdPersonAdd, IoMdAddCircle } from "react-icons/io";
 
 import AddNewCharacter from "../AddNewCharacter";
@@ -11,6 +13,8 @@ const AddButtons = ({ toRegisterCharacter, toRegisterNewTypeData, raceItems, cla
 
     const dialogRef = useRef(null)  // Declare the dialog's reference
     
+    const { t } = useTranslation(); // Translator reference
+
     const toggleDialog = () => {    // Declare the function that opens and closes the dialog
         if (!dialogRef.current) {
             return;
@@ -30,6 +34,7 @@ const AddButtons = ({ toRegisterCharacter, toRegisterNewTypeData, raceItems, cla
         <section className="flex justify-center items-center gap-3">
             <IoMdPersonAdd 
                 {...buttonProps}
+                title={t("Add New Character")}
                 onClick={() => {
                     setDialogContent(<AddNewCharacter 
                         toRegisterCharacter={toRegisterCharacter} 
@@ -44,6 +49,7 @@ const AddButtons = ({ toRegisterCharacter, toRegisterNewTypeData, raceItems, cla
             />
             <IoMdAddCircle 
                 {...buttonProps}
+                title={t("Add New Type of Data")}
                 onClick={() => {
                     setDialogContent(<AddNewDataType 
                         toRegisterNewTypeData={toRegisterNewTypeData}

@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const ThemeSwitcher = () => {
+    const { t } = useTranslation(); // Translator reference
+
     const handleTheme = (e) => {
         document.documentElement.classList.toggle("dark");
         document.documentElement.classList.contains("dark")
@@ -13,7 +17,7 @@ const ThemeSwitcher = () => {
             <img
                 src="/assets/sun-white.png" 
                 alt="Theme" 
-                title="Theme" 
+                title={t("Theme")} 
                 className="header-btn"
             />
         </button>

@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const DropDown = ({ data, listItems, value, toChange }) => {
+    const { t } = useTranslation(); // Translator reference
+
     return (
         <>
             <label 
@@ -12,7 +16,7 @@ const DropDown = ({ data, listItems, value, toChange }) => {
                 required={true}
                 onChange={e => toChange(e.target.value)}
             >
-                <option value="">Choose the {data}...</option>
+                <option value="">{t(data)}</option>
                 {listItems.map(item => (
                     <option 
                         key={item.id} 

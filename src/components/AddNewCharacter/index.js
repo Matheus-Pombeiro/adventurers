@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import { v4 as uuidv4 } from 'uuid';
 
 import InputText from "../InputText";
@@ -14,6 +16,8 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
     const [specialization, setSpecialization] = useState("");
     const [image, setImage] = useState("");
     const [status, setStatus] = useState(true);
+
+    const { t } = useTranslation(); // Translator reference
     
     // Declare a function that registers the new character
     const toSubmit = (e) => {
@@ -48,17 +52,17 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             className="form"
             onSubmit={toSubmit}
         >
-            <h2 className="h2">Add a New Character</h2>
+        <h2 className="h2">{t("Add New Character")}</h2>
 
             <InputText 
-                data={"Name"}
+                data={t("Name")}
                 required={true}
                 value={name}
                 toChange={value => setName(value)}
             />
             
             <DropDown 
-                data={"Race"}
+                data={t("Race")}
                 listItems={raceItems}
                 required={true}
                 value={race}
@@ -66,7 +70,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             />
 
             <DropDown 
-                data={"Class"}
+                data={t("Class")}
                 listItems={classItems}
                 required={true}
                 value={characterClass}
@@ -74,7 +78,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             />
 
             <DropDown 
-                data={"Specialization"}
+                data={t("Specialization")}
                 listItems={specializationItems}
                 required={true}
                 value={specialization}
@@ -82,7 +86,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
             />
 
             <InputText 
-                data={"Image"}
+                data={t("Image")}
                 required={false}
                 value={image}
                 toChange={value => setImage(value)}
@@ -93,18 +97,18 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
                     htmlFor="Alive"
                     className="label"
                 >
-                    Status
+                    {t("Status")}
                 </label>
                 <div className="flex gap-4">
                     <InputRadio
-                        data={"Alive"}
+                        data={t("Alive")}
                         name={inputRadioName}
                         value={true}
                         toChange={value => setStatus(value)}
                     />
                     
                     <InputRadio
-                        data={"Dead"}
+                        data={t("Dead")}
                         name={inputRadioName}
                         value={false}
                         toChange={value => setStatus(value)}
@@ -116,7 +120,7 @@ const AddNewCharacter = ({ toRegisterCharacter, toggleDialog, raceItems, classIt
                 type="submit"
                 className="btn"
             >
-                Add Character
+                {t("Add Character")}
             </button>
         </form>
     )

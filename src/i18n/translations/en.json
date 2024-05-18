@@ -1,5 +1,26 @@
 {
     "translation": {
-        "Adventurers": "Adventurers"
+        "Adventurers": "Adventurers",
+        "My Team": "My Team",
+        "Add New Character": "Add New Character",
+        "Name": "Name",
+        "Race": "Race",
+        "Class": "Class",
+        "Specialization": "Specialization",
+        "Image": "Image",
+        "Status": "Status",
+        "Alive": "Alive",
+        "Dead": "Dead",
+        "Add Character": "Add Character",
+        "Close": "Close",
+        "Add New Type of Data": "Add New Type of Data",
+        "Choose a Type": "Choose a Type",
+        "New Race": "New Race",
+        "New Class": "New Class",
+        "New Specialization": "New Specialization",
+        "Choose the Color": "Choose the Color",
+        "Add Data": "Add Data",
+        "Delete": "Delete",
+        "Theme": "Theme"        
     }
 }
