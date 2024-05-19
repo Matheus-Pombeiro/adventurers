@@ -17,7 +17,7 @@ const Header = () => {
                 {t("Adventurers")}
             </h1>
 
-            <nav className="flex justify-center items-center">
+            <nav className="flex justify-center items-center gap-1.5">
                 <ThemeSwitcher />
                 <LanguageSwitcher />
             </nav>
