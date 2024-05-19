@@ -92,7 +92,7 @@ const Main = () => {
     };
 
     return (
-        <main>
+        <main className="space-y-5">
             <section>
                 <AddButtons
                     toRegisterCharacter={character => setCharacters([...characters, character])}
@@ -103,7 +103,7 @@ const Main = () => {
                 />
             </section>
             <section>
-                <h2 className="h2 dark:text-white">{t("My Team")}</h2>
+                {characters.length > 0 && <h2 className="h2 mb-5 text-3xl dark:text-white">{t("My Team")}</h2>}
                 {specializationItems.map((specialization, index) => 
                     <Team 
                         key={index}
