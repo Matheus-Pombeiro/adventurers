@@ -4,7 +4,7 @@ import Main from "./components/Main";
 
 const App = () => {
   return (
-    <div className="min-h-screen h-dvh dark:bg-neutral-700 flex flex-col justify-between gap-5 relative">
+    <div className="min-h-screen dark:bg-neutral-700 flex flex-col justify-between gap-5 relative">
       <Header />
       <Main />
       <Footer />
